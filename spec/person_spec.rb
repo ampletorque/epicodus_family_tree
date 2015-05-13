@@ -29,12 +29,13 @@ describe (Person) do
     #    binding.pry
         expect(test_sibling_1.siblings).to eq([test_sibling_2.id, test_sibling_3.id])
     end
-    # it("tells you its parents") do
-    #     test_person = Person.create(:name => "Jimmy Person", :living => true)
-    #     test_parent1 = Person.create(:name => "James Person, Esq.", :living => true)
-    #     test_parent2 = Person.create(:name => "Jed Person III", :living => true)
-    #     test_person.poppas.create(:poppa => test_parent1)
-    #     expect(test_person.poppas).to eq([test_parent1])
-    # end
+    it("tells you its parents") do
+        test_person = Person.create(:name => "Jimmy Person", :living => true)
+        test_parent1 = Person.create(:name => "James Person, Esq.", :living => true)
+        test_parent2 = Person.create(:name => "Jed Person III", :living => true)
+        test_person.poppas.create(:poppa => test_parent1)
+        binding.pry
+        expect(test_person.poppas.poppa_id).to eq([test_parent1.id])
+    end
 
 end
